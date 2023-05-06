@@ -1,0 +1,10 @@
+---
+- name: Play Nginx
+  hosts: all
+  tasks:
+    - name: deploy nginx
+      docker_container:
+        name: nginx
+        image: nginx
+        ports:
+        - "80:80"

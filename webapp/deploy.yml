@@ -1,0 +1,10 @@
+---
+- name: Play apache
+  hosts: client-prod
+  tasks:
+    - name: deploy apache
+      docker_container:
+        name: httpd
+        image: httpd
+        ports:
+          - "83:80"
