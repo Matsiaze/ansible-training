@@ -3,7 +3,12 @@ Quickstart: Clone this stack to quickly deploy your cluster (1 ansible + 1 clien
   > git clone https://github.com/Matsiaze/cursus-devops.git
   >  // Go to : cursus-devops/vagrant/ansible/ to run *vagrant up*
 
-## 1. In the repo **webapp**:
+## 1. In the repo **docker** 
+- Install docker and pip immediately on your client
+  > Play install-docker.yml in the repository *docker/*:
+  > *ansible-playbook -i hosts install-docker.yml* 
+
+## 2. In the repo **webapp**:
 - Experiment Ad Hoc Command
   > ansible -i hosts all -m ping
   > // ansible -i hosts all -m setup
@@ -19,7 +24,7 @@ And more: https://github.com/Matsiaze/ansible-modules-core.git
   > Play install-docker.yml in the repository *webapp/docker*: 
   > *ansible-playbook -i hosts install-docker.yml*
 
-## 2. In the repo **webapp2**:
+## 3. In the repo **webapp2**:
 
 Deploy a welcome website on the client host
 - Experiment templates
@@ -33,7 +38,7 @@ Deploy a welcome website on the client host
 - Refer on documentation:
   > https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html // https://hub.docker.com/_/httpd // https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html
 
-## 3. In the repo **webapp_secure**
+## 4. In the repo **webapp_secure**
 
 Enhance good practices using vault for credentials and sensitive datas
 
