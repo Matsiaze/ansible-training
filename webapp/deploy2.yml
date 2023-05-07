@@ -1,6 +1,6 @@
 ---
 - name: "Apache install using docker"
-  hosts: prod
+  hosts: client-prod
   become: true
   vars:
     ansilbe_sudo_pass: vagrant

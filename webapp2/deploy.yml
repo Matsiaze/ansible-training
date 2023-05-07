@@ -1,0 +1,25 @@
+---
+- name: "Apache install using docker"
+  hosts: client-prod
+  become: true
+  pre_tasks:
+    - name: Install packages
+      package: name='{{ item }}' state=present
+      when: ansible_distribution =="CentOS"
+      loop:
+        - epel-release
+        - wget
+        - git
+  tasks:
+     - name: Copy website template
+       template:
+         src: index.html.j2
+         dest: /home/vagrant/index.html
+     - name: Create Apache container
+       docker_container:
+         name: webapp
+         image: httpd
+         ports:
+           - "83:80"
+         volumes:
+           - /home/vagrant/index.html:/usr/local/apache2/htdocs/index.html
