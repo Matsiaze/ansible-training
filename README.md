@@ -51,3 +51,11 @@ Enhance good practices using vault for credentials and sensitive datas
   >  *ansible-playbook -i prod.yml --ask-vault-pass deploy.yml* //
 - Go further and configure access through ssh: Generate key pair and pass the .pub to client
   > *ssh-keygen - t rsa*  and *ssh-copy-id vagrant@hostip*
+
+## 5. In the repo **wordpress**
+
+Develop maintanability using **roles**
+- Use ansible galaxy as ref documentation
+  > https://galaxy.ansible.com/home //
+  > Use a containerized wordpress role template in: https://github.com/diranetafen/ansible-role-containerized-wordpress.git // ansible-galaxy install -r roles/requirements.yml
+- Deploy wordpress using docker and ansible roles
