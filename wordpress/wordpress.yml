@@ -1,0 +1,24 @@
+---
+- hosts: prod
+  become: true
+  vars:
+    system_user: vagrant
+  vars_files:
+    - files/secrets/credentials.vault
+  pre_tasks:
+    - name: Install docker-compose
+      package:
+        name: docker-compose
+        state: present
+    - name: Add docker-compose to system PATH
+      lineinfile:
+        path: /etc/environment
+        line: 'PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/{{ system_user }}/.local/bin:/home/{{ system_user }}/bin"'
+        state: present
+        create: yes
+        owner: root
+        group: root
+    - name: create www-data
+      user: name=www-data state=present
+  roles:
+    - { role: ansible-role-containerized-wordpress }
