@@ -59,3 +59,7 @@ Develop maintanability using **roles**
   > https://galaxy.ansible.com/home //
   > Use a containerized wordpress role template in: https://github.com/diranetafen/ansible-role-containerized-wordpress.git // ansible-galaxy install -r roles/requirements.yml
 - Deploy wordpress using docker and ansible roles
+
+## 6. In the repo **tower**
+
+Deploy Ansible tower
